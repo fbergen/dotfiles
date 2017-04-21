@@ -1,7 +1,7 @@
 DOTPATH=`pwd`
 UNAME_S := $(shell uname -s)
 
-install: install_git_scripts link_dotfiles
+install: osx install_git_scripts link_dotfiles
 .PHONY: install
 .default: install
 
