@@ -1,4 +1,5 @@
 DOTPATH=`pwd`
+UNAME_S := $(shell uname -s)
 
 install: install_git_scripts link_dotfiles
 .PHONY: install
@@ -22,3 +23,10 @@ install_git_scripts:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/git-prompt.sh
 .PHONY: install_git_autocomplete
 
+# Setup Mac
+osx:
+ifeq ($(UNAME_S), Darwin)
+	echo "- Setting up a mac"
+	$(DOTPATH)/osx/brew.sh
+endif
+.PHONY: osx
