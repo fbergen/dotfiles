@@ -38,3 +38,7 @@ nnoremap ,p "0p
 nnoremap ,P "0P
 nnoremap ,d "_d
 
+
+set backspace=indent,eol,start
+
+

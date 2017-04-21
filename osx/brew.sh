@@ -24,16 +24,18 @@ brew install gnu-sed --with-default-names
 
 
 # Vim
-sudo mv /usr/bin/vim /usr/bin/system-compiled-vim
 brew install vim
 
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
+brew install grep
+brew install openssh
 
 brew install tmux
 brew install ack
 brew install git
 
 brew install pass
+# connect tmux to the OS X clipboard service.
+brew install reattach-to-user-namespace
+
 
 brew cleanup
