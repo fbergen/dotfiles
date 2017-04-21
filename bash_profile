@@ -5,5 +5,5 @@ PROMPT_COMMAND="[ -d $HOME/.history ] || mkdir -p $HOME/.history; echo : [\$(dat
 source ~/git-completion.bash
 source ~/git-prompt.sh
 
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 
