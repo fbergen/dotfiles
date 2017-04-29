@@ -14,6 +14,8 @@ set nu
 set wildmode=longest,list
 set timeoutlen=1000 ttimeoutlen=0
 set winaltkeys=no
+set autoindent 
+set smartindent
 
 nmap <LEADER>d "_d
 noremap H :tabp<CR>
