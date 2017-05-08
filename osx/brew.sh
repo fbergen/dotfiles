@@ -37,5 +37,9 @@ brew install pass
 # connect tmux to the OS X clipboard service.
 brew install reattach-to-user-namespace
 
+brew update
+brew install watchman
+# java jdk
+brew cask install java
 
 brew cleanup
