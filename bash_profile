@@ -12,3 +12,8 @@ source ~/git-prompt.sh
 
 PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 
+# Go things
+export GOPATH=~/go 
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+
