@@ -3,6 +3,8 @@ syntax on
 " filetype on
 filetype plugin on
 
+set autoindent
+set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
