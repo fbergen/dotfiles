@@ -41,5 +41,6 @@ brew update
 brew install watchman
 # java jdk
 brew cask install java
+brew cask install android-platform-tools
 
 brew cleanup

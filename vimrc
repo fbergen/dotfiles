@@ -1,21 +1,16 @@
-set nocompatible
-set smartindent
 
 syntax on
 " filetype on
 filetype plugin on
 
-set expandtab
-set shiftwidth=2
 set tabstop=2
+set shiftwidth=2
+set expandtab
 set softtabstop=2
-set paste
 set nu
 set wildmode=longest,list
 set timeoutlen=1000 ttimeoutlen=0
 set winaltkeys=no
-set autoindent 
-set smartindent
 
 nmap <LEADER>d "_d
 noremap H :tabp<CR>
