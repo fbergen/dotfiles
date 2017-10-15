@@ -11,6 +11,7 @@ link_dotfiles:
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
 	ln -sf $(DOTPATH)/bash_profile ~/.bash_profile
 	ln -sf $(DOTPATH)/vimrc ~/.vimrc
+	ln -sf $(DOTPATH)/vim ~/.vim
 	ln -sf $(DOTPATH)/tmux.conf ~/.tmux.conf
 	ln -sf $(DOTPATH)/inputrc ~/.inputrc
 .PHONY: link_dotfiles

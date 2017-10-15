@@ -1,7 +1,9 @@
+execute pathogen#infect()
 
 syntax on
 " filetype on
-filetype plugin on
+filetype plugin indent on
+
 
 set autoindent
 set smartindent
