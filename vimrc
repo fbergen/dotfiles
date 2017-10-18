@@ -42,4 +42,10 @@ nnoremap ,d "_d
 
 set backspace=indent,eol,start
 
-
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("h")': ['<cr>'],
+    \ }
+let g:ctrlp_custom_ignore = {
+  \ 'vcs' : '\v[\/]\.(git|hg|svn|)$',
+  \ 'dir': 'venv\|node_modules',
+  \ }
