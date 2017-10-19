@@ -32,6 +32,7 @@ brew install openssh
 brew install tmux
 brew install ack
 brew install git
+brew install go
 
 brew install pass
 # connect tmux to the OS X clipboard service.
