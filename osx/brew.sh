@@ -29,6 +29,7 @@ brew install vim
 brew install grep
 brew install openssh
 
+brew install htop
 brew install tmux
 brew install ack
 brew install git
