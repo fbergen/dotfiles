@@ -25,6 +25,7 @@
 npm-debug.log*
 
 ### OS generated files
+.netrwhist
 .DS_Store
 .DS_Store?
 ._*
