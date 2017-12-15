@@ -1,12 +1,12 @@
 DOTPATH=`pwd`
 UNAME_S := $(shell uname -s)
 
-install: osx install_git_scripts link_dotfiles
+install: osx install_git_scripts install_completion link_dotfiles
 .PHONY: install
 .default: install
 
 link_dotfiles:
-	echo "=== Linking Dotfiles ===\n"
+	@echo "=== Linking Dotfiles ===\n"
 	ln -sf $(DOTPATH)/gitconfig ~/.gitconfig
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
 	ln -sf $(DOTPATH)/bash_profile ~/.bash_profile
@@ -17,17 +17,26 @@ link_dotfiles:
 .PHONY: link_dotfiles
 
 install_git_scripts:
-	echo "=== Downloading git-completion.bash ===\n"
+	@echo "=== Downloading git-completion.bash ===\n"
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/git-completion.bash
 
-	echo "=== Downloading git-prompt.bash ===\n"
+	@echo "=== Downloading git-prompt.bash ===\n"
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/git-prompt.sh
+
 .PHONY: install_git_autocomplete
+
+install_completion:
+	@echo "=== Downloading docker completion script===\n"
+	sudo curl -L https://raw.githubusercontent.com/docker/compose/1.17.0/contrib/completion/bash/docker-compose -o /usr/local/etc/bash_completion.d/docker-compose
+.PHONY: install_completion
+
+
 
 # Setup Mac
 osx:
 ifeq ($(UNAME_S), Darwin)
-	echo "- Setting up a mac"
+	@echo "=== Setting up a mac ==="
 	$(DOTPATH)/osx/brew.sh
+	$(DOTPATH)/osx/osx.sh
 endif
 .PHONY: osx
