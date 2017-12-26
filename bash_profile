@@ -19,6 +19,8 @@ PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 export GOPATH=$HOME
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
+# When running (only) postgres in containers we need to point to localhost instead of socket.
+export PGHOST=localhost
 
 
 # React android stuff
