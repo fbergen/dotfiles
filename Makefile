@@ -7,6 +7,7 @@ install: osx install_git_scripts install_completion link_dotfiles
 
 link_dotfiles:
 	@echo "=== Linking Dotfiles ===\n"
+	git submodule update --init --recursive
 	ln -sf $(DOTPATH)/gitconfig ~/.gitconfig
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
 	ln -sf $(DOTPATH)/bash_profile ~/.bash_profile
