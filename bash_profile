@@ -12,6 +12,8 @@ hh() {
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+# Add coretutils to path
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 

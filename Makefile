@@ -15,6 +15,8 @@ link_dotfiles:
 	ln -sf $(DOTPATH)/vim ~/.vim
 	ln -sf $(DOTPATH)/tmux.conf ~/.tmux.conf
 	ln -sf $(DOTPATH)/inputrc ~/.inputrc
+	mkdir -p ~/.config/htop
+	ln -sf $(DOTPATH)/htoprc ~/.config/htop/htoprc
 .PHONY: link_dotfiles
 
 install_git_scripts:

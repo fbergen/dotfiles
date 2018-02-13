@@ -16,6 +16,8 @@ set nu
 set wildmode=longest,list
 set timeoutlen=1000 ttimeoutlen=0
 set winaltkeys=no
+autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
+
 
 nmap <LEADER>d "_d
 noremap H :tabp<CR>
