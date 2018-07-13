@@ -7,6 +7,7 @@ install: osx install_git_scripts install_completion link_dotfiles
 
 link_dotfiles:
 	@echo "=== Linking Dotfiles ===\n"
+	# To add a new submodule, run: git submodule add 
 	git submodule update --init --recursive
 	ln -sf $(DOTPATH)/gitconfig ~/.gitconfig
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
@@ -17,6 +18,7 @@ link_dotfiles:
 	ln -sf $(DOTPATH)/inputrc ~/.inputrc
 	mkdir -p ~/.config/htop
 	ln -sf $(DOTPATH)/htoprc ~/.config/htop/htoprc
+	ln -sf $(DOTPATH)/scripts ~/.scripts
 .PHONY: link_dotfiles
 
 install_git_scripts:

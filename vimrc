@@ -16,6 +16,7 @@ set nu
 set wildmode=longest,list
 set timeoutlen=1000 ttimeoutlen=0
 set winaltkeys=no
+" Remove trailing whitespace
 autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
 
 
@@ -52,3 +53,11 @@ let g:ctrlp_custom_ignore = {
   \ 'vcs' : '\v[\/]\.(git|hg|svn|)$',
   \ 'dir': 'venv\|node_modules',
   \ }
+
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
+" Close vim if no other buffer than nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+

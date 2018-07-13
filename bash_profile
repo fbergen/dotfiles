@@ -8,12 +8,14 @@ hh() {
   cat ~/.history/* | grep "$1"
 }
 
+alias jsonlines2csv='jsonlines2csv.py'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 # Add coretutils to path
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="~/.scripts:$PATH"
 
 PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 
