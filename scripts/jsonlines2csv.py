@@ -21,4 +21,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     writer = csv.DictWriter(args.out, fieldnames=args.fields.split(','), extrasaction='ignore')
     writer.writeheader()
-    writer.writerows(read_records(vars(args)['in']))
+    for row in read_records(vars(args)['in']):
+        writer.writerow(row)
+
