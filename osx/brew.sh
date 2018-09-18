@@ -47,4 +47,7 @@ brew install watchman
 brew cask install java
 brew cask install android-platform-tools
 
+# Other cask utils
+brew cask install karabiner
+
 brew cleanup

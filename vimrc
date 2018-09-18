@@ -61,3 +61,4 @@ autocmd vimenter * NERDTree
 " Close vim if no other buffer than nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+set directory^=$HOME/.vim/tmp//

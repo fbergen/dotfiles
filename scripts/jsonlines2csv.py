@@ -20,7 +20,7 @@ def flatten(records):
     """
     for record in records:
         # Copy the record to make sure we keep the old structure too.
-        flat = record
+        flat = copy.copy(record)
         flatten_recursive(record, flat, parent="")
         yield flat
 

@@ -17,6 +17,7 @@ link_dotfiles:
 	ln -sf $(DOTPATH)/vim ~/.vim
 	ln -sf $(DOTPATH)/tmux.conf ~/.tmux.conf
 	ln -sf $(DOTPATH)/inputrc ~/.inputrc
+	ln -sf $(DOTPATH)/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/htop
 	ln -sf $(DOTPATH)/htoprc ~/.config/htop/htoprc
 	ln -sf $(DOTPATH)/scripts ~/.scripts
