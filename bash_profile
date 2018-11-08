@@ -23,6 +23,9 @@ PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 export GOPATH=$HOME
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
+# Rust
+export PATH=$PATH:$HOME/.cargo/bin
+
 # When running (only) postgres in containers we need to point to localhost instead of socket.
 export PGHOST=localhost
 
@@ -32,11 +35,6 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fberge/google-cloud-sdk/path.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/path.bash.inc'; fi
