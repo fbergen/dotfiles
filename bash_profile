@@ -1,4 +1,9 @@
-
+uname_out="$(uname -s)"
+case "${uname_out}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    *)          machine="UNKNOWN:${uname_out}"
+esac
 
 # Save all commands in ~/.history/bash_history-$DATE
 PROMPT_COMMAND="[ -d $HOME/.history ] || mkdir -p $HOME/.history; echo : [\$(date '+%Y-%m-%d.%H:%M:%S')] $$ $USER \$OLDPWD\; \$(history 1 | sed -E 's/^[[:space:]]+[0-9]*[[:space:]]+//g') >> $HOME/.history/bash_history-\`date +%Y%m%d\`"
@@ -10,14 +15,25 @@ hh() {
 
 alias jsonlines2csv='jsonlines2csv.py'
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ ${machine} = "Mac" ]; then
+  # Mac
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+  # Add coretutils to path
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
+elif [ ${machine} = "Linux" ]; then
+  # Linux
+  :;
 fi
-# Add coretutils to path
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
 export PATH="~/.scripts:$PATH"
 
-PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
+if [ -f ~/git-prompt.sh ]; then
+  source ~/git-prompt.sh
+  PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
+fi
 
 # Go things
 export GOPATH=$HOME
