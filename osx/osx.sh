@@ -21,6 +21,7 @@ echo "Save screenshots to the desktop"
 mkdir -p $HOME/Desktop/screenshots
 defaults write com.apple.screencapture location -string "$HOME/Desktop/screenshots"
 
+export MYKEY=FkRN305ziV3EhKsqNdu1HIvYqtZijhTehW44DFZt
 
 echo "Kill affected applications"
 for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done
