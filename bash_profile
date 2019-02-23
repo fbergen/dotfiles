@@ -51,6 +51,7 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+export MYKEY=fd714358-3d1c-4cce-bf39-3d15d1c33c84
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fberge/google-cloud-sdk/path.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/path.bash.inc'; fi
