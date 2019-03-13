@@ -1,4 +1,46 @@
-execute pathogen#infect()
+" Install vim-plug for both vim and nvim
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!mkdir -p ~/.vim/autoload/'
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+    execute '!mkdir -p ~/.local/share/nvim/site/autoload/'
+    execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+
+call plug#begin()
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
+" GO integration
+Plug 'fatih/vim-go'
+
+" fuzzy search for files using ctrl+p
+Plug 'kien/ctrlp.vim'
+
+" Color scheme
+Plug 'ayu-theme/ayu-vim'
+
+" Statusbar
+Plug 'vim-airline/vim-airline'
+
+" Asyncronous linting
+Plug 'w0rp/ale'
+
+call plug#end()
+
+" Install plugins on start
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
+
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 syntax on
 " filetype on
@@ -54,6 +96,15 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': 'venv\|node_modules',
   \ }
 
+" Ale config
+" Check Python files with pylint.
+let b:ale_linters = ['pylint', 'mypy']
+" Let airline show errors
+let g:airline#extensions#ale#enabled = 1
+" Only run linters on save
+let g:ale_lint_on_text_changed = 'never'
+" Imports are weird for now... disable them...
+let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>

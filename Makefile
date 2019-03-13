@@ -46,4 +46,5 @@ ifeq ($(UNAME_S), Darwin)
 	$(DOTPATH)/osx/brew.sh
 	$(DOTPATH)/osx/osx.sh
 endif
+$(DOTPATH)/install.sh
 .PHONY: osx

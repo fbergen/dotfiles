@@ -14,6 +14,8 @@ brew upgrade
 brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
+brew install cmake
+
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
@@ -22,7 +24,6 @@ brew install findutils
 brew install gnu-sed --with-default-names
 # Install bash completion
 brew install bash-completion
-
 
 
 # Vim
@@ -44,6 +45,10 @@ brew install reattach-to-user-namespace
 
 brew update
 brew install watchman
+
+# Iterm2
+brew cask install iterm2
+
 # java jdk
 brew cask install java
 brew cask install android-platform-tools

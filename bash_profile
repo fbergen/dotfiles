@@ -13,11 +13,18 @@ alias jsonlines2csv='jsonlines2csv.py'
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
+# Add bin/sbin
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 # Add coretutils to path
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="~/.scripts:$PATH"
 
 PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
+
+# Neovim
+alias vim=nvim
 
 # Go things
 export GOPATH=$HOME
@@ -35,9 +42,12 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+# Python
+alias ackp="ack --type=python"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fberge/google-cloud-sdk/path.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fberge/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/completion.bash.inc'; fi
+
