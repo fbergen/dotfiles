@@ -21,6 +21,8 @@ echo "Save screenshots to the desktop"
 mkdir -p $HOME/Desktop/screenshots
 defaults write com.apple.screencapture location -string "$HOME/Desktop/screenshots"
 
+export AWS_ID=AKIAITR3KX6T53FBHV5A
+export AWS_KEY=2rKSjg2jnj3C0iS/RZ+TuymPmGdeAf+zg8zl7aUy
 
 echo "Kill affected applications"
 for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done
