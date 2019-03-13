@@ -28,6 +28,7 @@ brew install bash-completion
 
 # Vim
 brew install vim
+brew install neovim
 
 brew install grep
 brew install openssh
