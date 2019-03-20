@@ -21,5 +21,8 @@ echo "Save screenshots to the desktop"
 mkdir -p $HOME/Desktop/screenshots
 defaults write com.apple.screencapture location -string "$HOME/Desktop/screenshots"
 
+echo "Move dock to the left"
+defaults write com.apple.dock orientation -string left
+
 echo "Kill affected applications"
 for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done

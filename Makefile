@@ -8,15 +8,16 @@ install: osx install_git_scripts install_completion link_dotfiles
 
 link_dotfiles:
 	@echo "=== Linking Dotfiles ===\n"
-	# To add a new submodule, run: git submodule add 
-	git submodule update --init --recursive
 	ln -sf $(DOTPATH)/gitconfig ~/.gitconfig
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
 	ln -sf $(DOTPATH)/bash_profile ~/.bash_profile
 	ln -sf $(DOTPATH)/vimrc ~/.vimrc
+	mkdir -p ~/.config/nvim
+	ln -sf $(DOTPATH)/vimrc ~/.config/nvim/init.vim
 	ln -sf $(DOTPATH)/vim ~/.vim
 	ln -sf $(DOTPATH)/tmux.conf ~/.tmux.conf
 	ln -sf $(DOTPATH)/inputrc ~/.inputrc
+	mkdir -p ~/.config/karabiner
 	ln -sf $(DOTPATH)/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/htop
 	ln -sf $(DOTPATH)/htoprc ~/.config/htop/htoprc
@@ -45,6 +46,7 @@ ifeq ($(UNAME_S), Darwin)
 	@echo "=== Setting up a mac ==="
 	$(DOTPATH)/osx/brew.sh
 	$(DOTPATH)/osx/osx.sh
+	$(DOTPATH)/install.sh
 endif
-$(DOTPATH)/install.sh
+
 .PHONY: osx
