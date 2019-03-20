@@ -29,6 +29,9 @@ Plug 'vim-airline/vim-airline'
 " Asyncronous linting
 Plug 'w0rp/ale'
 
+" jedi-vim
+Plug 'davidhalter/jedi-vim'
+
 call plug#end()
 
 " Install plugins on start
@@ -105,6 +108,13 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 " Imports are weird for now... disable them...
 let g:ale_python_mypy_options = '--ignore-missing-imports'
+
+" Jedi configs
+" Disable autocompletions
+let g:jedi#completions_enabled = 0
+" Open definitions in new tabs
+let g:jedi#use_tabs_not_buffers = 1
+
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>

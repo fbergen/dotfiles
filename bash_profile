@@ -6,7 +6,10 @@ case "${uname_out}" in
 esac
 
 # Save all commands in ~/.history/bash_history-$DATE
-PROMPT_COMMAND="[ -d $HOME/.history ] || mkdir -p $HOME/.history; echo : [\$(date '+%Y-%m-%d.%H:%M:%S')] $$ $USER \$OLDPWD\; \$(history 1 | sed -E 's/^[[:space:]]+[0-9]*[[:space:]]+//g') >> $HOME/.history/bash_history-\`date +%Y%m%d\`"
+# Make sure the directory exists
+[ -d $HOME/.history ] || mkdir -p $HOME/.history;
+# echo last command (max 1000 chars to the history)
+PROMPT_COMMAND="echo : [\$(date '+%Y-%m-%d.%H:%M:%S')] $$ $USER \$OLDPWD\; \$(history 1 | sed -E 's/^[[:space:]]+[0-9]*[[:space:]]+//g' | cut -c -1000) >> $HOME/.history/bash_history-\`date +%Y%m%d\`"
 
 HISTIGNORE="hh *"
 hh() {
@@ -68,3 +71,5 @@ if [ -f '/Users/fberge/google-cloud-sdk/path.bash.inc' ]; then source '/Users/fb
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fberge/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/completion.bash.inc'; fi
 
+
+export PATH=/Users/fberge/.local/bin:$PATH
