@@ -18,25 +18,24 @@ hh() {
 
 alias jsonlines2csv='jsonlines2csv.py'
 
+# Add bin/sbin
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="~/.scripts:$PATH"
+
 if [ ${machine} = "Mac" ]; then
   # Mac
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
   # Add coretutils to path
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+  export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 
 elif [ ${machine} = "Linux" ]; then
   # Linux
   :;
 fi
 
-# Add bin/sbin
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# Add coretutils to path
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export PATH="~/.scripts:$PATH"
 
 if [ -f ~/git-prompt.sh ]; then
   source ~/git-prompt.sh
