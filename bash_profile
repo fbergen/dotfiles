@@ -37,10 +37,12 @@ elif [ ${machine} = "Linux" ]; then
 fi
 
 
+# Git stuff
 if [ -f ~/git-prompt.sh ]; then
   source ~/git-prompt.sh
   PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 fi
+alias gp="git push -u"
 
 # Neovim
 alias vim=nvim
