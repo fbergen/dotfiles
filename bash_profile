@@ -45,7 +45,7 @@ fi
 alias gp="git push -u"
 
 # Neovim
-alias vim=nvim
+alias vim="nvim -p"
 
 # Go things
 export GOPATH=$HOME

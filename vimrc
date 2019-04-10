@@ -11,9 +11,6 @@ endif
 
 call plug#begin()
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-
 " GO integration
 Plug 'fatih/vim-go'
 
@@ -24,13 +21,18 @@ Plug 'kien/ctrlp.vim'
 Plug 'ayu-theme/ayu-vim'
 
 " Statusbar
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 
 " Asyncronous linting
 Plug 'w0rp/ale'
 
 " jedi-vim
 Plug 'davidhalter/jedi-vim'
+
+" eunuch
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 
@@ -100,14 +102,49 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Ale config
-" Check Python files with pylint.
-let b:ale_linters = ['pylint', 'mypy']
-" Let airline show errors
-let g:airline#extensions#ale#enabled = 1
+let g:ale_linters = {
+\   'python': ['flake8', 'mypy'],
+\  }
+
 " Only run linters on save
 let g:ale_lint_on_text_changed = 'never'
 " Imports are weird for now... disable them...
 let g:ale_python_mypy_options = '--ignore-missing-imports'
+
+" Statusbar
+" Let airline show errors
+" let g:airline#extensions#ale#enabled = 1
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'absolutepath', 'modified', 'helloworld' ] ],
+      \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \             [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ]],
+      \ },
+      \ }
+
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+
 
 " Jedi configs
 " Disable autocompletions
@@ -115,11 +152,5 @@ let g:jedi#completions_enabled = 0
 " Open definitions in new tabs
 let g:jedi#use_tabs_not_buffers = 1
 
-
-" NerdTree
-map <C-n> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
-" Close vim if no other buffer than nerdtree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set directory^=$HOME/.vim/tmp//
