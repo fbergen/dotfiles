@@ -13,8 +13,9 @@ PROMPT_COMMAND="echo : [\$(date '+%Y-%m-%d.%H:%M:%S')] $$ $USER \$OLDPWD\; \$(hi
 
 HISTIGNORE="hh *"
 hh() {
-  cat ~/.history/* | grep "$1"
+  cat ~/.history/* | fzf --query="$@"
 }
+
 
 alias jsonlines2csv='jsonlines2csv.py'
 
@@ -72,5 +73,6 @@ if [ -f '/Users/fberge/google-cloud-sdk/path.bash.inc' ]; then source '/Users/fb
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fberge/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/fberge/google-cloud-sdk/completion.bash.inc'; fi
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH=/Users/fberge/.local/bin:$PATH

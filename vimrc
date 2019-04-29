@@ -101,6 +101,15 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': 'venv\|node_modules',
   \ }
 
+set wildignore+=*/.git/*,*/tmp/*,*.swp
+
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+
 " Ale config
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
