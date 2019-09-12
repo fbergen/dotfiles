@@ -44,13 +44,14 @@ if [ -f ~/git-prompt.sh ]; then
   PS1='[\u@\h:\w$(__git_ps1 " (%s)")]\$ '
 fi
 alias gp="git push -u"
+alias gitclean="git fetch --prune && git branch -vv | grep ': gone]'| grep -v '\*' | awk '{ print $1; }' | xargs git branch -D"
 
 # Neovim
 alias vim="nvim -p"
 
 # Go things
 export GOPATH=$HOME
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 # Rust
 export PATH=$PATH:$HOME/.cargo/bin
@@ -76,3 +77,7 @@ if [ -f '/Users/fberge/google-cloud-sdk/completion.bash.inc' ]; then source '/Us
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH=/Users/fberge/.local/bin:$PATH
+
+alias vdj="vd -f=jsonl"
+alias rgp="rg -tpy"
+export PATH="/usr/local/opt/node@10/bin:$PATH"
