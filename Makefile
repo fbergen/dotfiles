@@ -11,6 +11,7 @@ link_dotfiles:
 	ln -sf $(DOTPATH)/gitconfig ~/.gitconfig
 	ln -sf $(DOTPATH)/gitignore ~/.gitignore
 	ln -sf $(DOTPATH)/bash_profile ~/.bash_profile
+	ln -sf $(DOTPATH)/zshrc ~/.zshrc
 	ln -sf $(DOTPATH)/vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim
 	ln -sf $(DOTPATH)/vimrc ~/.config/nvim/init.vim

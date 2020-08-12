@@ -81,3 +81,6 @@ export PATH=/Users/fberge/.local/bin:$PATH
 alias vdj="vd -f=jsonl"
 alias rgp="rg -tpy"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export PBCAT_PROTO_ROOT="."
+
+export PATH="$HOME/.cargo/bin:$PATH"

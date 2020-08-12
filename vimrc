@@ -14,6 +14,9 @@ call plug#begin()
 " GO integration
 Plug 'fatih/vim-go'
 
+" Rust stuff
+Plug 'rust-lang/rust.vim'
+
 " fuzzy search for files using ctrl+p
 Plug 'kien/ctrlp.vim'
 
@@ -111,13 +114,20 @@ endif
 
 
 " Ale config
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \  }
 
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'python': ['isort'],
+\}
+
 " Only run linters on save
 let g:ale_lint_on_text_changed = 'never'
-" Imports are weird for now... disable them...
+" mypy doesn't pick up modules in virtual env, and if I add the path it takes
+" super long time, so ignore missing imports for now.
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 " Statusbar
@@ -153,6 +163,9 @@ let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
+
+" Rust config
+let g:rustfmt_autosave = 1
 
 
 " Jedi configs
